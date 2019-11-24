@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="style.css"></script>
+    <title>Mock-JavaScript</title>
+</head>
+
+<body id="body-wrap">
+
+    <!-- TODO
+        o mock1 : htmlに<script>を<body>内に記述してJavaScriptを実行
+        o mock2 : DOM構築後に外部Fileのonloadに代入した関数から<p>内のTextを置換
+        o mock3 : ButtonのClickEventで<body>内のFontSizeを変更
+        o mock4 : 1秒置きに1countしcountを表示
+
+        x mock? : DebugLogを出力し主要Browserで確認
+        x mock? : 各Eventの取得処理（後でTask分割）
+        x mock? : pugとsassとtypescriptを使用して全て書き直す
+    -->
+
+    <h1>Mock-JavaScript</h1>
+
+    <!-- mock1 : htmlに<script>を<body>内に記述してJavaScriptを実行 -->
+    <section id="mock1">
+        <h2>mock1</h2>
+        <p>
+            <script>
+                document.write("htmlに&lt;script&gt;を&lt;body&gt;内に記述してJavaScriptを実行");
+            </script>
+        </p>
+    </section>
+
+    <!-- mock2 : DOM構築後に外部Fileのonloadに代入した関数から<p>内のTextを書き換える -->
+    <section id="mock2">
+        <h2>mock2</h2>
+        <p id="mock2-text">JavaScriptで置換する前の文章</p>
+    </section>
+
+    <!-- mock3 : ButtonのClickEventで<body>内のfontSizeを変更する -->
+    <section id="mock3">
+        <h2>mock3</h2>
+        <input type="button" value="Change fontSize: 20px" onclick="ChangeFontSize();"></input>
+    </section>
+
+    <!-- mock4 : 1秒置きに1countしcountを表示する -->
+    <section id="mock4">
+        <h2>mock4</h2>
+        <p id="mock4-text">0</p>
+    </section>
+
+    <!-- bodyの最下部でincludeすることでDOM構築後にLoadされる -->
+    <script src="script.js"></script>
+
+</body>
+
+</html>
