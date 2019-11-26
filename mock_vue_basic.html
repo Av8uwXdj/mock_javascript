@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Mock Vue.js : Basic</title>
+  </head>
+  <body>
+    <!-- 構造化は普段から意識した方がいい -->
+    <!-- 別途index.htmlを作成してリンクして飛べると楽でいいかも -->
+    <h1>Vue.js の練習：基礎編</h1>
+
+    v-show
+
+    <!---------- Mock1 ---------->
+
+    <h2>Mock1 : #app-1 内の message を書き換える</h2>
+
+    <div id="app-1">
+      {{ message }}
+    </div>
+
+    <script>
+      var app = new Vue({
+        el: "#app-1",
+        data: {
+          message: "Hello Vue!"
+        }
+      });
+    </script>
+
+    <!---------- Mock2 ---------->
+
+    <h2>Mock2 : v-bind directive で title 属性を書き換える</h2>
+
+    <div id="app-2">
+      <span v-bind:title="message">
+        Hover Me!
+      </span>
+    </div>
+
+    <script>
+      var app2 = new Vue({
+        el: "#app-2",
+        data: {
+          message: "You loaded this page on " + new Date().toLocaleString()
+        }
+      });
+    </script>
+
+    <!---------- Mock3 ---------->
+
+    <h2>Mock3 : v-if directive で要素の表示を切り替える</h2>
+
+    <div id="app-3">
+      <span v-if="seen">You can see!</span>
+    </div>
+
+    <script>
+      var app3 = new Vue({
+        el: "#app-3",
+        data: {
+          seen: true
+        }
+      });
+    </script>
+
+    <!---------- Mock4 ---------->
+
+    <h2>Mock4 : v-show directive で 要素の表示を切り替える</h2>
+
+    <!---------- Mock5 ---------->
+
+    <h2>Mock5 : v-for directive で list の要素を辿る</h2>
+
+    <div id="app-5">
+      <ol>
+        <li v-for="todo in todos">
+          {{ todo.text }}
+        </li>
+      </ol>
+    </div>
+
+    <script>
+      var app5 = new Vue({
+        el: "#app-5",
+        data: {
+          todos: [
+            { text: "Learn HTML" },
+            { text: "Learn CSS" },
+            { text: "Learn JavaScript" }
+          ]
+        }
+      });
+    </script>
+  </body>
+</html>
